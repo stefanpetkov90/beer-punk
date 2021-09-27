@@ -1,17 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+// Router
+import { Route, Switch, Router } from "react-router-dom";
+import { createBrowserHistory } from "history";
+// Component
+import App from "./components/App/App";
+// Redux
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import configureStore from "./configureStore";
+
+const initialState = {};
+/** Redux store */
+const store = configureStore(initialState)[0];
+/** Redux Persistor store */
+const persistor = configureStore(initialState)[1];
+/** Contains history */
+const hist = createBrowserHistory();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <Router history={hist}>
+        <Switch>
+          <Route path="/" component={App} />
+        </Switch>
+      </Router>
+    </PersistGate>
+  </Provider>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
