@@ -8,6 +8,7 @@ import HomePage from "../../containers/Home/Home";
 import Navbar from "../Navbar/Navbar";
 import Favorites from "../../containers/Favourites/Favorites";
 import RandomBeer from "../../containers/RandomBeer/RandomBeer";
+import Wallet from "../../containers/Wallet/Wallet";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route exact path="/random" component={RandomBeer} />
         <Route exact path="/beers" component={HomePage} />
         <Route exact path="/favorites" component={Favorites} />
+        <Route exact path="/wallet" component={Wallet} />
       </Switch>
     </div>
   );

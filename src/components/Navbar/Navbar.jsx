@@ -21,6 +21,10 @@ const Navbar = () => {
     history.push("/random");
   };
 
+  const handleWalletClick = () => {
+    history.push("/wallet");
+  };
+
   return (
     <Box>
       <AppBar style={{ backgroundColor: "#00d1b2" }} position="static">
@@ -59,6 +63,15 @@ const Navbar = () => {
                 style={{ textTransform: "none", color: "white" }}
               >
                 Random Beer
+              </Button>
+            </div>
+            <div style={{ padding: 10 }}>
+              <Button
+                onClick={handleWalletClick}
+                color="inherit"
+                style={{ textTransform: "none", color: "white" }}
+              >
+                Wallet
               </Button>
             </div>
           </div>
