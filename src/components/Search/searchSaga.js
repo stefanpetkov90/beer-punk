@@ -6,8 +6,10 @@ import { put, take, call } from "redux-saga/effects";
 export default function* getSearchSaga(api) {
   while (true) {
     const createSearchRequest = yield take(GET_SEARCH_REQUEST);
+
     if (createSearchRequest.payload) {
       const searchString = createSearchRequest.payload;
+      console.log("GET_SEARCH_REQUEST");
       yield call(getSearch, api, searchString);
     }
   }

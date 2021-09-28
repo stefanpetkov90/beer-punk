@@ -5,10 +5,10 @@ import Beer from "./Beer/Beer";
 import { useDispatch } from "react-redux";
 import { setFavorites } from "../../containers/Favourites/actions";
 import Search from "../Search/Search";
+import { getSearch } from "../Search/actions";
 
 const Beers = () => {
   const dispatch = useDispatch();
-  const [allBeers, setBeers] = useState();
   const [data, setData] = useState();
   const { beers } = useSelector((state) => state.getBeers);
   const { favorites } = useSelector((state) => state.favorites);
@@ -31,21 +31,26 @@ const Beers = () => {
     dispatch(setFavorites(removeById));
   };
 
-  useEffect(() => {
-    setBeers(beers);
-  }, [beers]);
-
-  useEffect(() => {
-    if (searchResult) {
+  const handleSearchData = (searchCallback) => {
+    if (searchCallback) {
+      dispatch(getSearch(searchCallback));
       setData(searchResult);
     } else {
       setData(beers);
     }
-  }, [searchResult, allBeers, beers]);
+  };
+
+  useEffect(() => {
+    setData(beers);
+  }, [beers]);
+
+  useEffect(() => {
+    setData(searchResult);
+  }, [searchResult]);
 
   return (
     <>
-      <Search />
+      <Search handleSearchData={handleSearchData} />
       <div>
         <Grid
           style={{ marginTop: 20 }}

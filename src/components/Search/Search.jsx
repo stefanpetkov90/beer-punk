@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { Box, TextField, Stack } from "@mui/material/";
 import Button from "@material-ui/core/Button";
-import { useDispatch } from "react-redux";
-import { getSearch } from "./actions";
 
-const Search = () => {
-  const dispatch = useDispatch();
-  const [input, setInput] = useState();
+const Search = ({ handleSearchData }) => {
+  const [search, setSearch] = useState();
 
   const handleClick = () => {
-    dispatch(getSearch(input));
+    handleSearchData(search);
   };
 
   return (
@@ -30,7 +27,7 @@ const Search = () => {
           }}
         >
           <TextField
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => setSearch(e.target.value)}
             id="outlined-search"
             label="Search..."
             type="search"

@@ -2,10 +2,12 @@ import React from "react";
 import { Typography, Card, Button, CardHeader } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { getRandomBeer } from "./actions";
+import openBeerSound from "../../assets/beer-opening.mp3";
 
 const RandomBeer = () => {
   const dispatch = useDispatch();
   const { randomBeer } = useSelector((state) => state.randomBeer);
+  const beerOpenAdio = new Audio(openBeerSound);
 
   const handleRandomBeer = () => {
     dispatch(getRandomBeer());
@@ -55,6 +57,7 @@ const RandomBeer = () => {
                 }
                 avatar={
                   <img
+                    onClick={() => beerOpenAdio.play()}
                     src={beer.image_url}
                     width="140"
                     height="450"

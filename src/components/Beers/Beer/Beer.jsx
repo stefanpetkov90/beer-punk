@@ -8,11 +8,7 @@ const Beer = ({ beer, toggleFavourite, favourites }) => {
   const beerOpenAdio = new Audio(openBeerSound);
 
   return (
-    <Card
-      onClick={() => beerOpenAdio.play()}
-      raised
-      style={{ height: "200px" }}
-    >
+    <Card raised style={{ height: "200px" }}>
       <CardHeader
         action={
           <IconButton onClick={() => toggleFavourite(beer.id)}>
@@ -25,6 +21,7 @@ const Beer = ({ beer, toggleFavourite, favourites }) => {
         }
         avatar={
           <img
+            onClick={() => beerOpenAdio.play()}
             src={beer.image_url}
             width="30"
             height="100"
