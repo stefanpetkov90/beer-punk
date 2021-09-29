@@ -114,6 +114,7 @@ Wallet Login Page
 - Upon starting the application, the user is required to have the Metamask wallet browser extension in order to log in.
 - If the Metamask extension is available, upon clicking on the Connect with Metamask button, the extension will pop up and ask to log in with an account.
 - If the Metamask extension is not available, the application will return a warning message, prompting to install it in order to continue. 
+- If Metamask extension connected before clicking the Connect with Metamask button, application will connect without displaying the Metamask pop up window.
 
 Home Page
 - The user has the ability to send API search requests to the Punk Beer API and display them in the Home Page.
