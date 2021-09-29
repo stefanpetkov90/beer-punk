@@ -1,70 +1,167 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="https://images.punkapi.com/v2/192.png" alt="Logo" width="60" height="240">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">Punk Beer Web App</h3>
 
-## Available Scripts
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation-and-setup">Installation and Setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#known-issues">Known Issues</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- ABOUT THE PROJECT -->
+## About The Project
+The [punk api](https://punkapi.com/) doesn’t require a key to use and provides a lot of information in its responses.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Create a web app listing of some/all beers. 
 
-### `npm test`
+Possibly add search if the API allows it. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You should then be able to show a separate list of the items you favorited. This will of course not be saved to any database.
 
-### `npm run build`
+Bonus 1: If you can add the sound of opening beer when you click on the image of beer (find random sound from the internet).
+Bonus 2: Create a "Get Random Beer". When someone clicks it show them one random beer.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Bonus 3: If you think of you favourite list as a shopping cart, make sure you have a unique set of beers in it (no repetitions). Hint: bonus points for using hashed data to achieve this.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Bonus 3(alt): Imagine that Punk API could eventually change a beer. Make sure that upon viewing the Favourites list, you show which beers have not changed and which have been updated since your last viewing of the Favourites list (no need to show the changes, just whether there is something different or not). 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Bonus 4: Have a look at the [ethers.js library](https://docs.ethers.io/v5/). Try to make a wallet and connect it to [Metamask (Chrome Widget)](https://metamask.io).
 
-### `npm run eject`
+Bonus 5: Unlock the FE functionality only if a wallet is connected.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Bonus 6: Implement "Disconnect Wallet" functionality.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* [React]
+* [React Router]
+* [Redux-Saga]
+* [Axios]
+* [Redux-Persist]
+* [Punk API]
+* [ethers.js]
+* [Material UI]
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- GETTING STARTED -->
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
 
-### Code Splitting
+* Metamask Browser Extension
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  ```sh
+  https://metamask.io/
 
-### Analyzing the Bundle Size
+<!-- Installation -->
+### Installation and Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Clone the repo
 
-### Making a Progressive Web App
+   ```sh
+   git clone https://github.com/stefanpetkov90/beer-punk.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start the project
+   ```sh
+   npm start
+   ```
+4. Run in Browser
+   ```sh
+   http://localhost:3000/
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<!-- USAGE EXAMPLES -->
+## Usage
 
-### Deployment
+Wallet Login Page
+- Upon starting the application, the user is required to have the Metamask wallet browser extension in order to log in.
+- If the Metamask extension is available, upon clicking on the Connect with Metamask button, the extension will pop up and ask to log in with an account.
+- If the Metamask extension is not available, the application will return a warning message, prompting to install it in order to continue. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Home Page
+- The user has the ability to send API search requests to the Punk Beer API and display them in the Home Page.
+- The user can add his favorite beverages using the star icon in the top right corner of each beer card, when a favorite beer is selected, it appears in the Favorite page, which is selectable from the Navigation bar.
 
-### `npm run build` fails to minify
+Favorite Page
+- The user can view and remove the selected beers clicking on the star icon. 
+- The favorite beers are persisted on page refresh.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Random Beer Page
+- The user can select a random beer provided by the Beer Punk API. The random button generates a random beer on every click.
+
+Wallet Page
+- The logged in user can view their account number and account balance.
+- The user can disconnect from the application, using the Disconnect Wallet button. This action returns the user to the Metamask authentication page and prompts a message from Metamask to connect an account. 
+- Upon reading the ethers.js documentation and other similar libraries, I could not find a working solution to fully disconnect from the Metamask wallet extension.
+
+
+<!-- KNOWN -->
+## Known Issues
+
+- Upon reading the ethers.js documentation and other similar libraries, I could not find a working solution to fully disconnect from the Metamask wallet extension.
+- To fully disconnect the user has to open the Metamask extension and disconnect from there.
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Stefan Petkov - stefan.petkov@genericsoft.eu
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/othneildrew
+[product-screenshot]: images/screenshot.png
