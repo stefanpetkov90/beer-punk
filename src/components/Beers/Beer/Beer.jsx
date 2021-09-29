@@ -14,9 +14,9 @@ const Beer = ({ beer, toggleFavourite, favourites }) => {
         action={
           <IconButton onClick={() => toggleFavourite(beer.id)}>
             {favourites.indexOf(beer.id) >= 0 ? (
-              <StarIcon className="icon-color" />
+              <StarIcon style={{ color: "#00FFFF" }} />
             ) : (
-              <StarBorderIcon className="icon-color" />
+              <StarBorderIcon style={{ color: "#00FFFF" }} />
             )}
           </IconButton>
         }
