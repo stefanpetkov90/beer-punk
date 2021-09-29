@@ -53,10 +53,10 @@ const Beers = () => {
     <>
       <Search handleSearchData={handleSearchData} />
       <div className="grid-wrapper">
-        <Grid container spacing={3} columns={{ xs: 6, md: 4 }}>
+        <Grid container spacing={3} columns={{ xs: 4, sm: 8, md: 12 }}>
           {data
             ? data.map((beer) => (
-                <Grid item xs={3} key={beer.id}>
+                <Grid item xs={12} sm={6} md={3} key={beer.id}>
                   <Beer
                     favourites={favorites}
                     toggleFavourite={toggleFavourite}
