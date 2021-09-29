@@ -35,6 +35,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
+Please use the With-Wallet(default) branch to view the latest changes!
+
 The [punk api](https://punkapi.com/) doesn’t require a key to use and provides a lot of information in its responses.
 
 Create a web app listing of some/all beers. 
@@ -104,6 +107,8 @@ Bonus 6: Implement "Disconnect Wallet" functionality.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+
+Please use the With-Wallet(default) branch to view the latest changes!
 
 Wallet Login Page
 - Upon starting the application, the user is required to have the Metamask wallet browser extension in order to log in.
