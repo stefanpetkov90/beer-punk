@@ -105,8 +105,6 @@ Bonus 6: Implement "Disconnect Wallet" functionality.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-In order to log into the application, the user has to install the Metamask browser extension. After successfully logging in, the user is redirected to the Home screen. Here the user can view all the beers provided by the Punk Beer API. 
-
 Wallet Login Page
 - Upon starting the application, the user is required to have the Metamask wallet browser extension in order to log in.
 - If the Metamask extension is available, upon clicking on the Connect with Metamask button, the extension will pop up and ask to log in with an account.
