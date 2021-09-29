@@ -54,7 +54,7 @@ const Navbar = () => {
                 color="inherit"
                 className="button-navbar"
               >
-                Favourites
+                Favorites
               </Button>
             </div>
             <div className="container">
