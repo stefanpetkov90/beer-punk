@@ -1,17 +1,28 @@
 import React, { useState } from "react";
 import { Box, TextField, Stack } from "@mui/material/";
 import Button from "@material-ui/core/Button";
+import "./Search.scss";
 
 const Search = ({ handleSearchData }) => {
   const [search, setSearch] = useState();
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     handleSearchData(search);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      console.log("enter press here! ");
+      e.preventDefault();
+      handleSearchData(search);
+    }
   };
 
   return (
     <>
       <Box
+        onKeyPress={(e) => handleKeyPress(e)}
         component="form"
         sx={{
           "& .MuiTextField-root": { m: 1, width: "500px" },
@@ -19,26 +30,17 @@ const Search = ({ handleSearchData }) => {
         noValidate
         autoComplete="off"
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: 50,
-          }}
-        >
+        <div className="search-wrapper">
           <TextField
             onChange={(e) => setSearch(e.target.value)}
             id="outlined-search"
             label="Search..."
             type="search"
           />
-          <Stack
-            style={{ height: 50, display: "flex", alignSelf: "center" }}
-            direction="row"
-          >
+          <Stack className="stack-style" direction="row">
             <Button
-              onClick={() => handleClick()}
-              style={{ backgroundColor: "#2F6AFA", color: "white" }}
+              onClick={(e) => handleClick(e)}
+              className="button-style"
               variant="contained"
             >
               Search

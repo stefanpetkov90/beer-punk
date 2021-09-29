@@ -1,9 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import Beer from "../../components/Beers/Beer/Beer";
 import { useDispatch } from "react-redux";
 import { setFavorites } from "../../containers/Favourites/actions";
+import "./Favorites.scss";
 
 const Favorites = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const Favorites = () => {
       {favoriteData.length > 0 ? (
         <div>
           <Grid
+            className="grid-wrapper"
             style={{ marginTop: 20 }}
             container
             spacing={3}
@@ -51,18 +53,12 @@ const Favorites = () => {
           </Grid>
         </div>
       ) : (
-        <Typography
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: 250,
-            fontSize: 30,
-          }}
-        >
-          The list is empty, you can add your favorite drinks from the Home
-          screen!
-        </Typography>
+        <div className="typography-wrapper">
+          <h5>
+            The list is empty, you can add your favorite drinks from the Home
+            screen!
+          </h5>
+        </div>
       )}
     </>
   );

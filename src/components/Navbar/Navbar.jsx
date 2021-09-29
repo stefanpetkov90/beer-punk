@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useHistory } from "react-router-dom";
+import "./Navbar.scss";
 
 const Navbar = () => {
   const history = useHistory();
@@ -27,49 +28,49 @@ const Navbar = () => {
 
   return (
     <Box>
-      <AppBar style={{ backgroundColor: "#00d1b2" }} position="static">
+      <AppBar className="app-bar" position="static">
         <Toolbar>
           <Typography
-            style={{ color: "white" }}
+            className="title"
             variant="h6"
             component="div"
             sx={{ flexGrow: 1 }}
           >
             Beans Love Bears
           </Typography>
-          <div style={{ display: "flex", flexDirection: "row" }}>
-            <div style={{ padding: 10 }}>
+          <div className="flex-direction">
+            <div className="container">
               <Button
                 onClick={handleHomeClick}
                 color="inherit"
-                style={{ textTransform: "none", color: "white" }}
+                className="button-navbar"
               >
                 Home
               </Button>
             </div>
-            <div style={{ padding: 10 }}>
+            <div className="container">
               <Button
                 onClick={handleFavoriteClick}
                 color="inherit"
-                style={{ textTransform: "none", color: "white" }}
+                className="button-navbar"
               >
                 Favourites
               </Button>
             </div>
-            <div style={{ padding: 10 }}>
+            <div className="container">
               <Button
                 onClick={handleRandomClick}
                 color="inherit"
-                style={{ textTransform: "none", color: "white" }}
+                className="button-navbar"
               >
                 Random Beer
               </Button>
             </div>
-            <div style={{ padding: 10 }}>
+            <div className="container">
               <Button
                 onClick={handleWalletClick}
                 color="inherit"
-                style={{ textTransform: "none", color: "white" }}
+                className="button-navbar"
               >
                 Wallet
               </Button>

@@ -1,40 +1,58 @@
 import React from "react";
-import { ethers } from "ethers";
-import Button from "@mui/material/Button";
+import { useSelector, useDispatch } from "react-redux";
+import { removeUser } from "../WalletLogin/actions";
+import { Container, Typography, Box, Button } from "@material-ui/core";
+import "./Wallet.scss";
 
 const Wallet = () => {
-  //   const provider = new ethers.providers.Web3Provider(window.ethereum);
-  //   const signer = provider.getSigner();
-
-  const connectWallet = async () => {
-    await window.ethereum.request({
-      method: "eth_requestAccounts",
-      params: [
-        {
-          eth_accounts: {},
-        },
-      ],
-    });
-    // await provider.send("eth_requestAccounts", []);
-    // const accounts = await provider.listAccounts();
-    // console.log(accounts[0]);
-  };
+  const dispatch = useDispatch();
+  const { account, balance, isSignedIn } = useSelector((state) => state.user);
 
   const disconnectWallet = async () => {
-    await window.ethereum.request({
-      method: "wallet_requestPermissions",
-      params: [
-        {
-          eth_accounts: {},
-        },
-      ],
-    });
+    dispatch(removeUser());
+    if (isSignedIn) {
+      await window.ethereum.request({
+        method: "wallet_requestPermissions",
+        params: [
+          {
+            eth_accounts: {},
+          },
+        ],
+      });
+    }
   };
 
   return (
-    <div>
-      <Button onClick={() => connectWallet()}>Connect Wallet</Button>
-      <Button onClick={() => disconnectWallet()}>Disconnect Wallet</Button>
+    <div className="wallet-wrapper">
+      <Container component="main" maxWidth="xs">
+        <div className="wrapper">
+          <div className="paper">
+            <Typography className="form-title" component="h1" variant="h5">
+              Wallet
+            </Typography>
+            <div>
+              <p>
+                <b>Account:</b>
+              </p>
+              <p>{account}</p>
+              <p>
+                <b>Balance:</b>
+              </p>
+              <p>{balance}</p>
+              <Button
+                onClick={() => disconnectWallet()}
+                type="submit"
+                fullWidth
+                variant="contained"
+                className="login-button"
+              >
+                Disconnect Wallet
+              </Button>
+            </div>
+          </div>
+          <Box className="box-style" mt={8}></Box>
+        </div>
+      </Container>
     </div>
   );
 };

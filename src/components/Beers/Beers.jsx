@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { setFavorites } from "../../containers/Favourites/actions";
 import Search from "../Search/Search";
 import { getSearch } from "../Search/actions";
+import "./Beers.scss";
 
 const Beers = () => {
   const dispatch = useDispatch();
@@ -51,13 +52,8 @@ const Beers = () => {
   return (
     <>
       <Search handleSearchData={handleSearchData} />
-      <div>
-        <Grid
-          style={{ marginTop: 20 }}
-          container
-          spacing={3}
-          columns={{ xs: 6, md: 4 }}
-        >
+      <div className="grid-wrapper">
+        <Grid container spacing={3} columns={{ xs: 6, md: 4 }}>
           {data
             ? data.map((beer) => (
                 <Grid item xs={3} key={beer.id}>

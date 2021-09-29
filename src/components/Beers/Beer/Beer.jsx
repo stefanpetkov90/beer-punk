@@ -3,6 +3,7 @@ import { Typography, Card, CardHeader, IconButton } from "@material-ui/core";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 import openBeerSound from "../../../assets/beer-opening.mp3";
+import "./Beer.scss";
 
 const Beer = ({ beer, toggleFavourite, favourites }) => {
   const beerOpenAdio = new Audio(openBeerSound);
@@ -13,9 +14,9 @@ const Beer = ({ beer, toggleFavourite, favourites }) => {
         action={
           <IconButton onClick={() => toggleFavourite(beer.id)}>
             {favourites.indexOf(beer.id) >= 0 ? (
-              <StarIcon style={{ color: "#00FFFF" }} />
+              <StarIcon className="icon-color" />
             ) : (
-              <StarBorderIcon style={{ color: "#00FFFF" }} />
+              <StarBorderIcon className="icon-color" />
             )}
           </IconButton>
         }
